@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">E-commerce_Swipe</string>
+    <string name="intro_title">Step intor your \n style <font color="#6033ba">A world of shoes</font></string>
+    <string name="tagline_intropage">More than just an online business</string>
+    <string name="intro_signin">If you have already an account? <font color="#6033ba">SignIn</font></string>
+    <string name="email_text">
+            example@gmail.com
+        </string>
+    <string name="password_head">
+          Create a password
+        </string>
+    <string name="password_text">
+            must be 8 characters
+        </string>
+    <string name="confirm_password_text">
+           Confirm password
+        </string>
+    <string name="repeat_password_text">
+           repeat password
+        </string>
+    <string name="other_signup_">
+            Other sign in options
+        </string>
+</resources>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.SignupActivity"
+    android:background="@color/light_blue"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/txviewheading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="40dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:textStyle="bold"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/black"
+        android:text="Create account" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:layout_marginBottom="5dp"
+            android:layout_marginStart="10dp"
+            android:textStyle="bold"
+            android:paddingLeft="32dp"
+            android:paddingTop="10dp"/>
+
+        <LinearLayout
+            android:id="@+id/input_field"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/input_field"
+            >
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:id="@+id/text"
+                android:textSize="10dp"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:gravity="start|center_vertical"
+                android:lineSpacingExtra="1sp"
+                android:text="@string/email_text"
+                android:textAlignment="textStart"
+                android:textAppearance="@style/text"
+                android:translationY="0.32sp" />
+        </LinearLayout>
+
+
+
+        <TextView
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/password_head"
+            android:layout_marginBottom="5dp"
+            android:layout_marginStart="10dp"
+            android:textStyle="bold"
+            android:paddingLeft="32dp"
+            android:paddingTop="10dp"/>
+
+        <LinearLayout
+            android:id="@+id/password_input_field"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/input_field"
+            >
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:id="@+id/passwordtxbox"
+                android:layout_width="200dp"
+                android:textSize="10dp"
+                android:layout_height="20dp"
+                android:gravity="start|center_vertical"
+                android:lineSpacingExtra="1sp"
+                android:text="@string/password_text"
+                android:textAlignment="textStart"
+                android:textAppearance="@style/text"
+                android:translationY="0.32sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/passwordrepeat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Confirm pasword"
+                android:layout_marginBottom="5dp"
+                android:layout_marginStart="10dp"
+                android:textStyle="bold"
+                android:paddingLeft="32dp"
+                android:paddingTop="10dp"/>
+
+            <LinearLayout
+                android:id="@+id/passwordconfirm_input_field"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/input_field"
+                >
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:id="@+id/confirmpasswordtxbox"
+                    android:layout_width="200dp"
+                    android:layout_height="20dp"
+                    android:textSize="10dp"
+                    android:gravity="start|center_vertical"
+                    android:lineSpacingExtra="1sp"
+                    android:text="repeat password"
+                    android:textAlignment="textStart"
+                    android:textAppearance="@style/text"
+                    android:translationY="0.32sp" />
+            </LinearLayout>
+
+    </LinearLayout>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+          <androidx.appcompat.widget.AppCompatButton
+              android:id="@+id/button_compat"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:background="@drawable/button_prim"
+
+              android:text="Log in"
+              android:textColor="@color/white"
+              android:layout_marginLeft="45dp"
+              android:layout_marginRight="45dp"
+              android:layout_marginTop="40dp"
+              />
+
+      </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:id="@+id/other_sign_"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/other_signup_"
+                android:textAppearance="@style/other_signup_"
+                android:lineSpacingExtra="1sp"
+                android:translationY="0.28sp"
+                android:textSize="15dp"
+                android:textAlignment="center"
+                />
+
+            <ImageButton
+                android:id="@+id/button_google_sign_in"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="180dp"
+                android:background="@drawable/button_with_googlesignup"
+                android:src="@drawable/gogle_svg"
+                android:visibility="visible" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>
