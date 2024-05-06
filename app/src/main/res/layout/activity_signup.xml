@@ -70,6 +70,7 @@
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textinputemail"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textEmailAddress"
@@ -115,6 +116,7 @@
                 >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputpassword"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="textPassword"
@@ -162,6 +164,7 @@
                     >
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inputconfirm"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:inputType="textPassword"
@@ -181,7 +184,7 @@
 
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_compat"
+                android:id="@+id/buttonCompat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="45dp"

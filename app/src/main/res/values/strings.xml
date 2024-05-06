@@ -27,4 +27,7 @@
     <string name="other_signin_">
            --- Other sign in options ---
         </string>
+    <string name="hello_">
+        Hello!
+    </string>
 </resources>

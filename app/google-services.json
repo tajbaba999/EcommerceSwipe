@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "981938398452",
-    "project_id": "e-commerce-swipe",
-    "storage_bucket": "e-commerce-swipe.appspot.com"
+    "project_number": "104191757399",
+    "project_id": "ecommerceswipe-74b83",
+    "storage_bucket": "ecommerceswipe-74b83.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:981938398452:android:e8b341d373dcda5618aaa1",
+        "mobilesdk_app_id": "1:104191757399:android:60a7e495bcb86fa7656712",
         "android_client_info": {
           "package_name": "com.example.e_commerce_swipe"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBbZJ_BnUnL_PQ9cixlw41_KAwb-7KhOJA"
+          "current_key": "AIzaSyBUev_tGUFKt5uh7OUGDszL0zGyL_z__0A"
         }
       ],
       "services": {

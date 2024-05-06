@@ -3,7 +3,13 @@
     <style name="Base.Theme.Ecommerce_Swipe" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:statusBarColor" >@color/light_blue</item>
     </style>
 
     <style name="Theme.Ecommerce_Swipe" parent="Base.Theme.Ecommerce_Swipe" />
+    <style name="SplashApi" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/light_blue</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/brand_fit_logo</item>
+        <item name="postSplashScreenTheme">@style/Theme.Ecommerce_Swipe</item>
+    </style>
 </resources>
