@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,18 +8,15 @@
     android:background="@color/light_blue"
     android:orientation="vertical"
     >
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+
 
     <ImageView
         android:id="@+id/imagetop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
         android:src="@drawable/image_top" />
 
     <TextView
@@ -33,7 +30,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
         android:textColor="@color/black"
-        android:text="Create account" />
+        android:text="Sign in" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -92,7 +89,7 @@
             android:baselineAligned="false"
             android:paddingLeft="32dp"
             android:paddingTop="10dp"
-            android:text="@string/password_head"
+            android:text="@string/password_head_2"
             android:textColor="@color/darkgrey"
             android:textStyle="bold" />
 
@@ -111,74 +108,28 @@
                 android:background="@drawable/input_field"
                 app:boxBackgroundMode="none"
                 android:paddingBottom="0dp"
+                app:passwordToggleEnabled="true"
                 app:placeholderText="must be 8 charcters"
                 >
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="textPassword"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                android:paddingTop="-40dp"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textPassword"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:paddingTop="-40dp"
 
-                />
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/passwordrepeat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginBottom="5dp"
-                android:paddingLeft="32dp"
-                android:paddingTop="10dp"
-                android:text="Confirm pasword"
-                android:textColor="@color/darkgrey"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:id="@+id/passwordconfirm_input_field"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:background="@drawable/input_field">
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/texfiledconfirmpassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/input_field"
-                    app:boxBackgroundMode="none"
-                    android:paddingBottom="0dp"
-                    app:placeholderText="repeat password"
-                    >
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:inputType="textPassword"
-                        android:textSize="20sp"
-                        android:textColor="@color/black"
-                        android:paddingTop="-40dp"
-
-                        />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_compat"
@@ -189,14 +140,10 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginRight="45dp"
                 android:background="@drawable/button_prim"
-                android:text="Sign up"
+                android:text="Log in"
                 android:textColor="@color/white" />
 
-
-
         </LinearLayout>
-
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -211,7 +158,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="30dp"
                 android:lineSpacingExtra="1sp"
-                android:text="@string/other_signup_"
+                android:text="@string/other_signin_"
                 android:textAlignment="center"
                 android:textAppearance="@style/other_signup_"
                 android:textColor="@color/darkgrey"
@@ -229,19 +176,8 @@
                 android:visibility="visible"
                 />
 
-            <TextView
-                android:id="@+id/textViewAccountexist"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:textColor="@color/darkgrey"
-                android:layout_gravity="center"
-                android:layout_marginTop="58dp"
-                android:text="Already have an account? Log in" />
-
 
         </LinearLayout>
 
 
     </LinearLayout>
-</LinearLayout>
-</ScrollView>

@@ -4,10 +4,13 @@
     <string name="tagline_intropage">More than just an online business</string>
     <string name="intro_signin">If you have already an account? <font color="#6033ba">SignIn</font></string>
     <string name="email_text">
-            example@gmail.com
+            Email
         </string>
     <string name="password_head">
           Create a password
+        </string>
+    <string name="password_head_2">
+           Password
         </string>
     <string name="password_text">
             must be 8 characters
@@ -19,6 +22,9 @@
            repeat password
         </string>
     <string name="other_signup_">
-            Other sign in options
+           --- Other sign up options ---
+        </string>
+    <string name="other_signin_">
+           --- Other sign in options ---
         </string>
 </resources>

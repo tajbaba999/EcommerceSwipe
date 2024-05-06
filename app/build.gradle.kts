@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.e_commerce_swipe"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.e_commerce_swipe"
@@ -54,5 +54,8 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("androidx.appcompat:appcompat:1.4.1")
+
+    implementation("com.google.android.material:material:1.12.0")
+
 
 }
