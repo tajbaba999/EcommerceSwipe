@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -15,12 +15,15 @@
         android:theme="@style/Theme.Ecommerce_Swipe"
         tools:targetApi="31">
         <activity
+            android:name=".Productadd"
+            android:exported="false" />
+        <activity
             android:name=".activity.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".activity.SignupActivity"
-            android:theme="@style/SplashApi"
-            android:exported="true" >
+            android:exported="true"
+            android:theme="@style/SplashApi">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,8 +32,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
     </application>
 
 </manifest>

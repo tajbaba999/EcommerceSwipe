@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.e_commerce_swipe.activity.LoginActivity
 import com.example.e_commerce_swipe.activity.SignupActivity
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,6 +30,13 @@ class MainActivity : AppCompatActivity() {
         rvView.layoutManager = LinearLayoutManager(this)
 
         getProducts()
+
+        val fab = findViewById<FloatingActionButton>(R.id.floating_action_button)
+
+        fab.setOnClickListener {
+            val intent = Intent(this, Productadd::class.java)
+            startActivity(intent)
+        }
 
     }
 
@@ -58,7 +66,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<List<ProductItem>>, t: Throwable) {
-
+                Toast.makeText(this@MainActivity, "${t.toString()}", Toast.LENGTH_LONG).show()
             }
 
         })
