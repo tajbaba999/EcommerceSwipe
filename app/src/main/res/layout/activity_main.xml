@@ -1,45 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <ImageButton
-        android:id="@+id/ellipse_1"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="16dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="64dp"
-        android:background="@drawable/profile_image"
-        android:src="@drawable/img"
-        />
+    tools:context=".MainActivity"
+    android:background="@color/light_blue">
+
     <!--
      Font family: Poppins
      Line height: 18sp
      (identical to box height)
      -->
-    <TextView
-        android:id="@+id/hello_"
-        android:layout_width="33dp"
-        android:layout_height="18dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="70dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="66dp"
-        android:text="@string/hello_"
-        android:textAppearance="@style/hello_"
-        android:gravity="top"
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileimage"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/brand_logo"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/white"/>
+
+        <TextView
+            android:id="@+id/hello_"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hello_"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textAppearance="@style/hello_"
+            android:gravity="top"
+            android:textSize="20dp"
+            />
+
+    </LinearLayout>
 
 
 
 
 
-
-
-
-</RelativeLayout>
+</LinearLayout>

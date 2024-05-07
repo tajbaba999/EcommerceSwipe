@@ -18,7 +18,7 @@ class SignupActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen()
-        Thread.sleep(10000)
+        Thread.sleep(1000)
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

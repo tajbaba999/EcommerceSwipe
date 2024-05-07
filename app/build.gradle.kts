@@ -67,5 +67,9 @@ dependencies {
     //Splash API
     implementation("androidx.core:core-splashscreen:1.0.0")
 
+    //Circlur image
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
+
+
 
 }
