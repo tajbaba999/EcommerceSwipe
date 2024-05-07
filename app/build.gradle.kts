@@ -79,6 +79,9 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.16.0")
     //material ui
     implementation("com.google.android.material:material:1.5.0")
+    //Image pciker lin
+
+    implementation("com.github.dhaval2404:imagepicker:2.1")
 
 
 }

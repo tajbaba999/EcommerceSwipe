@@ -142,6 +142,7 @@
                 android:layout_marginRight="45dp"
                 android:background="@drawable/button_prim"
                 android:text="Log in"
+                android:gravity="center"
                 android:textColor="@color/white" />
 
         </LinearLayout>

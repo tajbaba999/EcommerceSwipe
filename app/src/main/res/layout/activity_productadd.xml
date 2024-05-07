@@ -1,10 +1,190 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Productadd">
+    android:background="@color/light_blue">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tvProductName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:textSize="20sp"
+            android:text="Product Name *"
+            android:textColor="@color/darkgrey"
+            android:textStyle="bold" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputfieldproductname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvProductName"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            app:boxBackgroundMode="none"
+            app:hintEnabled="true"
+            app:placeholderText="Product Name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/texfiledproductname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:background="@drawable/input_field"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/tvProductCatogery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:textSize="20sp"
+            android:text="Product Catogery *"
+            android:textColor="@color/darkgrey"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputfieldcatogergy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvProductName"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            app:boxBackgroundMode="none"
+            app:hintEnabled="true"
+            app:placeholderText="Product Catogery">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/texfiledcatogery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:background="@drawable/input_field"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/tvProductPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:textSize="20sp"
+            android:text="Price *"
+            android:textColor="@color/darkgrey"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputfieldPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvProductName"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            app:boxBackgroundMode="none"
+            app:hintEnabled="true"
+            app:placeholderText="Price">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/texfiledPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:background="@drawable/input_field"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tvProductTax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:textSize="20sp"
+            android:text="Tax *"
+            android:textColor="@color/darkgrey"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputfieldTax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvProductName"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            app:boxBackgroundMode="none"
+            app:hintEnabled="true"
+            app:placeholderText="Tax ">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/texfiledTax"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:background="@drawable/input_field"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical">
+
+            <ImageView
+                android:layout_marginTop="30dp"
+                android:scaleType="fitCenter"
+                android:id="@+id/selectimage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:srcCompat="@tools:sample/avatars" />
+
+        </LinearLayout>
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:id="@+id/selectimagebtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Select image" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_compat_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="45dp"
+
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="45dp"
+                android:background="@drawable/button_prim"
+                android:text="UPLOAD"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:layout_marginBottom="30dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    </RelativeLayout>
+</ScrollView>
