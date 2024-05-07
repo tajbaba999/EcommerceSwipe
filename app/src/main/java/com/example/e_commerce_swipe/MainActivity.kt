@@ -41,34 +41,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getProducts() {
-            var retrofit    = Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-                .create(ProductApiInterface::class.java)
+        val apiService = RetrofitClient.getClient(BASE_URL).create(ProductApiInterface::class.java)
 
-        var retorData = retrofit.getData()
-
-        retorData.enqueue(object : Callback<List<ProductItem>>{
+        apiService.getData().enqueue(object : Callback<List<ProductItem>> {
             override fun onResponse(
                 call: Call<List<ProductItem>>,
                 response: Response<List<ProductItem>>
             ) {
                 if(response.isSuccessful) {
-                    var data = response.body()!!
-//                    Toast.makeText(this@MainActivity, " datas ${data.toString()}", Toast.LENGTH_LONG)
-//                        .show()
-//                    Log.d("datas", data.toString())
-
+                    val data = response.body()!!
                     prductAdapter = ProductAdapter(baseContext, data)
                     rvView.adapter = prductAdapter
                 }
             }
 
             override fun onFailure(call: Call<List<ProductItem>>, t: Throwable) {
-                Toast.makeText(this@MainActivity, "${t.toString()}", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@MainActivity, "Error: ${t.message}", Toast.LENGTH_LONG).show()
             }
-
         })
     }
 }

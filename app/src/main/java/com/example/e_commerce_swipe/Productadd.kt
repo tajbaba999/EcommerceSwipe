@@ -2,20 +2,26 @@ package com.example.e_commerce_swipe
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.e_commerce_swipe.databinding.ActivityProductaddBinding
 import com.github.dhaval2404.imagepicker.ImagePicker
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class Productadd : AppCompatActivity() {
     private lateinit var binding: ActivityProductaddBinding
+    private val BASE_URL = "https://app.getswipe.in/api/public/"
+    private val apiService = RetrofitClient.getClient(BASE_URL).create(ProductpostService::class.java)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityProductaddBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         binding.selectimagebtn.setOnClickListener {
             ImagePicker.with(this)
                 .crop()
@@ -23,6 +29,35 @@ class Productadd : AppCompatActivity() {
                 .maxResultSize(1080, 1080)
                 .start()
         }
+
+        binding.buttonupload.setOnClickListener {
+            val name = binding.texfiledproductname.text.toString()
+            val category = binding.texfiledcatogery.text.toString()
+            val price = binding.texfiledPrice.text.toString()
+            val tax = binding.texfiledTax.text.toString()
+
+            addProduct(name, category, price, tax)
+        }
+    }
+
+    private fun addProduct(name: String, category: String, price: String, tax: String) {
+        val call = apiService.addProduct(name, category, price, tax)
+        call.enqueue(object : Callback<ProductResponse> {
+            override fun onResponse(call: Call<ProductResponse>, response: Response<ProductResponse>) {
+                if (response.isSuccessful) {
+                    val productResponse = response.body()
+                    if (productResponse != null) {
+                        Toast.makeText(this@Productadd, "${productResponse.success}", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(this@Productadd, "Try again", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<ProductResponse>, t: Throwable) {
+                // Handle failure
+            }
+        })
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
