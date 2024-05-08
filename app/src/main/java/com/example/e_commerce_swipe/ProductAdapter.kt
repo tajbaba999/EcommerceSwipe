@@ -32,7 +32,11 @@ class ProductAdapter(var con : Context, var list : List<ProductItem>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        Glide.with(con).load(list[position].image).into(holder.img)
+        if(!list[position].image.isNullOrEmpty()){
+            Glide.with(con).load(list[position].image).into(holder.img)
+        }else{
+            holder.img.setImageResource(R.drawable.no_image_defalut)
+        }
         holder.name.text =  list[position].product_name
         holder.type.text = list[position].product_type
         holder.tax.text = "Tax : " + list[position].price.toString()+"$"

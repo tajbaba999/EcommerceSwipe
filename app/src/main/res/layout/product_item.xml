@@ -1,25 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_width="wrap_content"
+<LinearLayout android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="8dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
 <!--om.google.android.material.card.MaterialCardView-->
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="horizontal"
+        android:background="@drawable/background_item"
         >
-
+    <LinearLayout
+        android:layout_width="80dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/photo_background"
+       >
         <ImageView
             android:id="@+id/productImage"
             android:layout_width="80dp"
             android:layout_height="90dp"
-            android:src="@drawable/no_image_defalut"
-            android:scaleType="fitCenter"
+            android:foreground="@drawable/photo_background"
             android:contentDescription="No image available"
+           android:scaleType="fitXY"
 
- />
+
+            />
+    </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
