@@ -42,8 +42,13 @@ class Productadd : AppCompatActivity() {
             val category = binding.texfiledcatogery.text.toString()
             val price = binding.texfiledPrice.text.toString()
             val tax = binding.texfiledTax.text.toString()
+//            val imageFilePath = FileUtil.getPath(this, imageUri)
+//            val imageFile = File(imageFilePath)
+//            val imageRequestBody = RequestBody.create(MediaType.parse("multipart/form-data"), imageFile)
+//            val imagePart = MultipartBody.Part.createFormData("files[]", imageFile.name, imageRequestBody)
 
-                addProduct(name, category, price, tax)
+
+            addProduct(name, category, price, tax)
 
         }
     }
