@@ -5,6 +5,7 @@ import android.media.browse.MediaBrowser
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 //import android.widget.SearchView
@@ -21,6 +22,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import androidx.appcompat.widget.SearchView
+import com.facebook.shimmer.Shimmer
+import com.facebook.shimmer.ShimmerFrameLayout
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.analytics
 import org.imaginativeworld.oopsnointernet.callbacks.ConnectionCallback
@@ -37,6 +40,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     private var productList = mutableListOf<ProductItem>()
     private lateinit var firebaseAnalytics: FirebaseAnalytics
+    private lateinit var shrimmerlayout : ShimmerFrameLayout
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -47,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         rvView = findViewById(R.id.recyclerView)
         val searchView = findViewById<SearchView>(R.id.searchView)
 
-
+        shrimmerlayout = findViewById(R.id.shimmer_view_container)
         rvView.layoutManager = LinearLayoutManager(this)
 
         getProducts()
@@ -120,6 +124,8 @@ class MainActivity : AppCompatActivity() {
                     productList.addAll(data)
                     prductAdapter = ProductAdapter(baseContext, data)
                     rvView.adapter = prductAdapter
+                    shrimmerlayout.stopShimmer();
+                    shrimmerlayout.visibility = View.GONE
                 }
             }
 
@@ -140,5 +146,15 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()
+    }
+
+    override fun onPause() {
+        shrimmerlayout.stopShimmer()
+        super.onPause()
+    }
+
+    override fun onResume() {
+        shrimmerlayout.startShimmer()
+        super.onResume()
     }
 }

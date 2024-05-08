@@ -8,4 +8,5 @@
     <color name="darkgrey">#616161</color>
     <color name="light_blue">#F0F3FB</color>
     <color name="blue">#6089F6</color>
+    <color name="light_black">#12000000</color>
 </resources>
