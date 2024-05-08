@@ -10,11 +10,19 @@ import android.content.Intent
 import com.example.e_commerce_swipe.MainActivity
 import android.util.Log
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.GoogleAuthProvider
 
 
 class SignupActivity : AppCompatActivity() {
+    private val RC_SIGN_IN = 9001
+    val Req_Code: Int = 123
     private lateinit var binding : ActivitySignupBinding
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var client: GoogleSignInClient
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen()
@@ -54,6 +62,36 @@ class SignupActivity : AppCompatActivity() {
                 }
             } else {
                 Toast.makeText(this, "Empty fields are not allowed", Toast.LENGTH_LONG).show()
+            }
+        }
+
+        binding.buttonGoogleSignUp.setOnClickListener {
+            val options = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build()
+            client = GoogleSignIn.getClient(this, options)
+            startActivityForResult(client.signInIntent, RC_SIGN_IN)
+        }
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == RC_SIGN_IN) { // Use the same request code as RC_SIGN_IN
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            try {
+                val account = task.getResult(ApiException::class.java)
+                val credential = GoogleAuthProvider.getCredential(account.idToken, null)
+                FirebaseAuth.getInstance().signInWithCredential(credential)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            val intent = Intent(this, MainActivity::class.java)
+                            startActivity(intent)
+                        } else {
+                            Toast.makeText(this, task.exception?.message, Toast.LENGTH_SHORT).show()
+                        }
+                    }
+            } catch (e: ApiException) {
+                Log.w("SignupActivity", "Google sign in failed", e)
             }
         }
     }

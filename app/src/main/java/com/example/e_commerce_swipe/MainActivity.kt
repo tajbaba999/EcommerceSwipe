@@ -5,27 +5,40 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageButton
+//import android.widget.SearchView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.e_commerce_swipe.activity.LoginActivity
 import com.example.e_commerce_swipe.activity.SignupActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import androidx.appcompat.widget.SearchView
+
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
 
 class MainActivity : AppCompatActivity() {
     var BASE_URL = "https://app.getswipe.in/api/public/";
     lateinit var rvView : RecyclerView
     lateinit var prductAdapter: ProductAdapter
+    private lateinit var firebaseAuth: FirebaseAuth
+    private var productList = mutableListOf<ProductItem>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        firebaseAuth = FirebaseAuth.getInstance()
         rvView = findViewById(R.id.recyclerView)
+        val searchView = findViewById<SearchView>(R.id.searchView)
+
 
         rvView.layoutManager = LinearLayoutManager(this)
 
@@ -38,6 +51,23 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val btn = findViewById<ImageButton>(R.id.logout)
+        btn.setOnClickListener {
+            Firebase.auth.signOut()
+            Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show()
+            navigateToLogin()
+        }
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                newText?.let { filterProducts(it) }
+                return true
+            }
+        })
     }
 
     private fun getProducts() {
@@ -50,6 +80,8 @@ class MainActivity : AppCompatActivity() {
             ) {
                 if(response.isSuccessful) {
                     val data = response.body()!!
+                    productList.clear()
+                    productList.addAll(data)
                     prductAdapter = ProductAdapter(baseContext, data)
                     rvView.adapter = prductAdapter
                 }
@@ -59,5 +91,18 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this@MainActivity, "Error: ${t.message}", Toast.LENGTH_LONG).show()
             }
         })
+    }
+
+    private fun filterProducts(query: String) {
+        val filteredList = productList.filter { product ->
+            product.product_name.contains(query, true) || product.product_type.contains(query, true)
+        }
+        prductAdapter.updateList(filteredList)
+    }
+
+    private fun navigateToLogin() {
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }

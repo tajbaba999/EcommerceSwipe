@@ -61,7 +61,7 @@ class Productadd : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val productResponse = response.body()
                     if (productResponse != null) {
-                        Toast.makeText(this@Productadd, "${productResponse.success}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@Productadd, "${productResponse.message}", Toast.LENGTH_SHORT).show()
                     }
                 } else {
                     Toast.makeText(this@Productadd, "Try again", Toast.LENGTH_SHORT).show()
@@ -69,7 +69,7 @@ class Productadd : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<ProductResponse>, t: Throwable) {
-                // Handle failure
+                Toast.makeText(this@Productadd, "${t.toString()}", Toast.LENGTH_SHORT).show()
             }
         })
     }

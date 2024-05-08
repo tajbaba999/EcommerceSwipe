@@ -38,4 +38,9 @@ class ProductAdapter(var con : Context, var list : List<ProductItem>) :
         holder.tax.text = "Tax : " + list[position].price.toString()+"$"
         holder.price.text = "Price : " + list[position].price.toString()+"$"
     }
+    fun updateList(newList: List<ProductItem>) {
+        list = newList
+        notifyDataSetChanged()
+    }
+
 }

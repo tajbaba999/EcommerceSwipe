@@ -193,7 +193,10 @@
                 android:layout_marginRight="45dp"
                 android:background="@drawable/button_prim"
                 android:text="Sign up"
-                android:textColor="@color/white" />
+                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:textColor="@color/white"
+                tools:ignore="RtlCompat" />
 
 
 
@@ -222,7 +225,7 @@
                 android:translationY="0.28sp" />
 
             <ImageButton
-                android:id="@+id/button_google_sign_in"
+                android:id="@+id/button_google_sign_up"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"

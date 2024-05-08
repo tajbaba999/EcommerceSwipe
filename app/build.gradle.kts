@@ -69,7 +69,7 @@ dependencies {
     implementation("androidx.core:core-splashscreen:1.0.0")
 
     //Circlur image
-    implementation ("de.hdodenhof:circleimageview:3.1.0")
+    implementation("de.hdodenhof:circleimageview:3.1.0")
 
     //Retrofit
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
@@ -83,5 +83,8 @@ dependencies {
 
     implementation("com.github.dhaval2404:imagepicker:2.1")
 
+
+            //firebase
+    implementation("com.google.android.gms:play-services-auth:20.2.0")
 
 }

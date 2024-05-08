@@ -18,26 +18,60 @@
         android:layout_marginTop="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp">
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profileimage"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/brand_logo"
-            app:civ_border_width="2dp"
-            app:civ_border_color="@color/white"/>
 
-        <TextView
-            android:id="@+id/hello_"
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:src="@drawable/profile"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#FF000000"/>
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/hello_"
-            android:textAppearance="@style/hello_"
-            android:gravity="top"
-            android:textSize="20dp"
-            android:layout_marginLeft="20dp"
-            />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/hello_"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hello_"
+                android:textFontWeight="@integer/google_play_services_version"
+                android:textAppearance="@style/hello_"
+                android:gravity="top"
+                android:textSize="30dp"
+                android:layout_marginLeft="10dp"
+                />
+            <TextView
+                android:id="@+id/welcome_"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/there_"
+                android:textFontWeight="@integer/material_motion_duration_long_1"
+                android:textAppearance="@style/hello_"
+                android:gravity="top"
+                android:textSize="20dp"
+                android:layout_marginLeft="10dp"
+                />
+
+        </LinearLayout>
+
 
     </LinearLayout>
+    <ImageButton
+        android:id="@+id/logout"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:scaleType="fitXY"
+        android:layout_margin="40dp"
+        android:background="@drawable/poweroff"
+    android:contentDescription="@string/logout_button"
+    android:src="@drawable/poweroff" />
 
     <!-- SearchView -->
 
@@ -81,7 +115,7 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
         android:contentDescription="@string/fab_content_desc"
-        android:backgroundTint="@color/purple"
+        android:backgroundTint="@color/blue"
         app:srcCompat="@drawable/baseline_add_24"/>
 
 </RelativeLayout>

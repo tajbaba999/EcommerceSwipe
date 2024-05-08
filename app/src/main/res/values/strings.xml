@@ -30,7 +30,13 @@
     <string name="hello_">
         Hello !
     </string>
+    <string name="there_">
+        Welcome
+    </string>
     <string name="fab_content_desc">
         Add
+    </string>
+    <string name="logout_button">
+        Log out
     </string>
 </resources>
