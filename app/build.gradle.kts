@@ -60,6 +60,8 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("androidx.appcompat:appcompat:1.4.1")
+    implementation("com.google.android.material:material:1.2.1")
+    implementation("org.imaginativeworld.oopsnointernet:oopsnointernet:2.0.0")
 
     implementation("com.google.android.material:material:1.12.0")
 
@@ -84,7 +86,11 @@ dependencies {
     implementation("com.github.dhaval2404:imagepicker:2.1")
 
 
-            //firebase
+            //firebase auth
     implementation("com.google.android.gms:play-services-auth:20.2.0")
+
+    //firebase analytics
+    implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
+    implementation("com.google.firebase:firebase-analytics")
 
 }

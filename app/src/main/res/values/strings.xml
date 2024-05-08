@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">E-commerce_Swipe</string>
+    <string name="app_name">Swipe Mart</string>
     <string name="intro_title">Step intor your \n style <font color="#6033ba">A world of shoes</font></string>
     <string name="tagline_intropage">More than just an online business</string>
     <string name="intro_signin">If you have already an account? <font color="#6033ba">SignIn</font></string>

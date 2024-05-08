@@ -1,6 +1,7 @@
 package com.example.e_commerce_swipe
 
 import android.content.Intent
+import android.media.browse.MediaBrowser
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -20,6 +21,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import androidx.appcompat.widget.SearchView
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.analytics
+import org.imaginativeworld.oopsnointernet.callbacks.ConnectionCallback
+import org.imaginativeworld.oopsnointernet.dialogs.signal.NoInternetDialogSignal
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -31,11 +36,14 @@ class MainActivity : AppCompatActivity() {
     lateinit var prductAdapter: ProductAdapter
     private lateinit var firebaseAuth: FirebaseAuth
     private var productList = mutableListOf<ProductItem>()
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        firebaseAnalytics = Firebase.analytics
         firebaseAuth = FirebaseAuth.getInstance()
+
         rvView = findViewById(R.id.recyclerView)
         val searchView = findViewById<SearchView>(R.id.searchView)
 
@@ -68,6 +76,34 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
         })
+
+        NoInternetDialogSignal.Builder(
+            this,
+            lifecycle
+        ).apply {
+            dialogProperties.apply {
+                connectionCallback = object : MediaBrowser.ConnectionCallback(), ConnectionCallback { // Optional
+                    override fun hasActiveConnection(hasActiveConnection: Boolean) {
+                        // ...
+                    }
+                }
+
+                cancelable = false
+                noInternetConnectionTitle = "No Internet"
+                noInternetConnectionMessage =
+                    "Check your Internet connection and try again."
+                showInternetOnButtons = true
+                pleaseTurnOnText = "Please turn on"
+                wifiOnButtonText = "Wifi"
+                mobileDataOnButtonText = "Mobile data"
+
+                onAirplaneModeTitle = "No Internet"
+                onAirplaneModeMessage = "You have turned on the airplane mode."
+                pleaseTurnOffText = "Please turn off"
+                airplaneModeOffButtonText = "Airplane mode"
+                showAirplaneModeOffButtons = true
+            }
+        }.build()
     }
 
     private fun getProducts() {
