@@ -49,13 +49,13 @@ class Productadd : AppCompatActivity() {
     }
 
     private fun addProduct(name: String, category: String, price: String, tax: String) {
-        val imageFilePath = FileUtil.getPath(this, imageUri!!)
-        val imageFile = File(imageFilePath)
-        val imageRequestBody = RequestBody.create(MediaType.parse("multipart/form-data"), imageFile)
-        val imagePart = MultipartBody.Part.createFormData("files[]", imageFile.name, imageRequestBody)
+//        val imageFilePath = FileUtil.getPath(this, imageUri!!)
+//        val imageFile = File(imageFilePath)
+//        val imageRequestBody = RequestBody.create(MediaType.parse("multipart/form-data"), imageFile)
+//        val imagePart = MultipartBody.Part.createFormData("files[]", imageFile.name, imageRequestBody)
 
 
-        val call = apiService.addProduct(name, category, price, tax, imagePart)
+        val call = apiService.addProduct(name, category, price, tax)
         call.enqueue(object : Callback<ProductResponse> {
             override fun onResponse(call: Call<ProductResponse>, response: Response<ProductResponse>) {
                 if (response.isSuccessful) {

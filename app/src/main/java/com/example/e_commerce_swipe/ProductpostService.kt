@@ -17,6 +17,6 @@ interface ProductpostService {
         @Field("product_type") productType: String,
         @Field("price") price: String,
         @Field("tax") tax: String,
-        @Part image: MultipartBody.Part
+//        @Part image: MultipartBody.Part
     ): Call<ProductResponse>
 }
