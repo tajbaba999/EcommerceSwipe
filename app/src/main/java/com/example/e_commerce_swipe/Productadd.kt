@@ -1,20 +1,27 @@
 package com.example.e_commerce_swipe
-
+import com.github.dhaval2404.imagepicker.util.FileUtil
+import okhttp3.MediaType
+import okhttp3.RequestBody
+import java.io.File
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.e_commerce_swipe.databinding.ActivityProductaddBinding
 import com.github.dhaval2404.imagepicker.ImagePicker
+import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
 
 class Productadd : AppCompatActivity() {
     private lateinit var binding: ActivityProductaddBinding
     private val BASE_URL = "https://app.getswipe.in/api/public/"
     private val apiService = RetrofitClient.getClient(BASE_URL).create(ProductpostService::class.java)
+    private var imageUri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,12 +43,19 @@ class Productadd : AppCompatActivity() {
             val price = binding.texfiledPrice.text.toString()
             val tax = binding.texfiledTax.text.toString()
 
-            addProduct(name, category, price, tax)
+                addProduct(name, category, price, tax)
+
         }
     }
 
     private fun addProduct(name: String, category: String, price: String, tax: String) {
-        val call = apiService.addProduct(name, category, price, tax)
+        val imageFilePath = FileUtil.getPath(this, imageUri!!)
+        val imageFile = File(imageFilePath)
+        val imageRequestBody = RequestBody.create(MediaType.parse("multipart/form-data"), imageFile)
+        val imagePart = MultipartBody.Part.createFormData("files[]", imageFile.name, imageRequestBody)
+
+
+        val call = apiService.addProduct(name, category, price, tax, imagePart)
         call.enqueue(object : Callback<ProductResponse> {
             override fun onResponse(call: Call<ProductResponse>, response: Response<ProductResponse>) {
                 if (response.isSuccessful) {
@@ -63,7 +77,8 @@ class Productadd : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK) {
-            binding.selectimage.setImageURI(data?.data)
+            imageUri = data?.data
+            binding.selectimage.setImageURI(imageUri)
         }
     }
 }
